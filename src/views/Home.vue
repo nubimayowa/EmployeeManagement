@@ -131,14 +131,13 @@ import users from '@/store/modules/users';
 
 
 
-@Component
-export default Class home extends Vue {
 
 
-
-// get username(){
-//   return users.username
-// }
+export default {
+  name: "home",
+   components: {
+   
+  },
 
 
 

@@ -47,9 +47,19 @@
 
                     </div>
                 </div>
+                 <div class="dash-nav-dropdown">
+                    <a href="#!" class="dash-nav-item dash-nav-dropdown-toggle">
+                        <i class="fa fa-tasks"></i> Task</a>
+                    <div class="dash-nav-dropdown-menu">
+                        <a class="dash-nav-dropdown-item"><router-link to="/app/assigntask">Assign Task</router-link></a>
+                         <a  class="dash-nav-dropdown-item"><router-link to=""> My Task</router-link> </a>
+                        <a  class="dash-nav-dropdown-item"><router-link to="/app/tasklist"> Task List</router-link> </a>
+
+                    </div>
+                </div>
                 <div class="dash-nav-dropdown">
                     <a href="#!" class="dash-nav-item dash-nav-dropdown-toggle">
-                        <i class="fa fa-gear"></i> fnjrjggde </a>
+                        <i class="fa fa-gear"></i> Settings  </a>
                     <div class="dash-nav-dropdown-menu">
                         <a href="https://github.com/HackerThemes/spur-template" target="_blank" class="dash-nav-dropdown-item">GitHub</a>
                         <a href="http://hackerthemes.com" target="_blank" class="dash-nav-dropdown-item">HackerThemes</a>
@@ -205,7 +215,9 @@
                             </div>
                         </div>
                     </div> -->
+                    <transition name="slide" mode="out-in">
                     <router-view></router-view>
+                    </transition>
                 </div>
                 
             </main>
@@ -265,8 +277,46 @@ export default {
 
 </script>
 
-</script>
 
-<style >
+
+<style scoped>
+
+.slide-enter-active{
+    animation: slide-in 200ms ease-out forwards;
+
+}
+
+.slide-leave-active{
+    animation: slide-out 200ms ease-out forwards;
+
+}
+
+
+@keyframes slide-in{
+    from {
+        transform: translateY(-30px);
+        opacity: 0;
+    }
+    to{
+         transform: translateY(0);
+        opacity: 1;
+        
+    }
+    
+}
+
+@keyframes slide-out{
+    from {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    to{
+         transform: translateY(-30px);
+        opacity: 0;
+        
+    }
+    
+}
+
 
 </style>

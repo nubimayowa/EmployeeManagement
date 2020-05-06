@@ -53,7 +53,7 @@
    
       
         <td>{{purchase.dept}}</td>
-        <td><span class="badge badge-pill badge-primary">{{
+        <td><span class="badge badge-pill badge-default">{{
                       purchase.amount
                     }}</span>
         
@@ -69,11 +69,7 @@
                       <i class="fa fa-eye"></i>
                     </router-link>
                    </td>
-                  <td>
-                    
-
-                    </td>
-                   
+                 
                    
 
                   
@@ -155,7 +151,7 @@ export default  {
   created() {
     this.isLoading = true
     db.collection("purchase")
-     .orderBy('item')
+    //  .orderBy('item')
       .get()
       .then(querySnapshot => {
         querySnapshot.forEach(doc => {

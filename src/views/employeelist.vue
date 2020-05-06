@@ -41,7 +41,8 @@
 
 
         <td>{{employee.fullname}}</td>
-        <td><span class="badge badge-pill badge-primary">{{
+        
+        <td><span class="badge badge-pill badge-default">{{
                       employee.position
                     }}</span>
          <router-link
@@ -167,6 +168,14 @@ export default {
         $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
       });
     });
+    
+
+    if (employees.dept == "Sales"){
+      this.badgecolor = "Primary"
+    }
+
+
+
     }
   
 

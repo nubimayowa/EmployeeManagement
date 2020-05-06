@@ -1,0 +1,64 @@
+{
+  "name": "employeemanagement",
+  "description": "```\r npm install\r ```",
+  "version": "1.0.0",
+  "main": "babel.config.js",
+  "dependencies": {
+    "@types/node": "^13.9.1",
+    "@vue/component-compiler-utils": "^1.3.1",
+    "axios": "^0.19.0",
+    "bootstrap": "^4.4.1",
+    "dropdown-js": "^0.0.1-alpha11",
+    "firebase": "^6.6.2",
+    "font-awesome": "^4.7.0",
+    "fsevents": "^1.2.9",
+    "izitoast": "^1.4.0",
+    "jquery": "^3.4.1",
+    "popper.js": "^1.15.0",
+    "sass-loader": "^8.0.0",
+    "typings": "^2.1.1",
+    "vee-validate": "^3.2.0",
+    "vue": "^2.6.11",
+    "vue-bootstrap-datetimepicker": "^5.0.1",
+    "vue-content-loader": "^0.2.2",
+    "vue-datatable": "^1.0.4",
+    "vue-loader": "^15.9.1",
+    "vue-loading-overlay": "^3.2.0",
+    "vue-paginate": "^3.6.0",
+    "vue-property-decorator": "^8.2.2",
+    "vue-router": "^3.1.6",
+    "vue-template-compiler": "^2.6.11",
+    "vuelidate": "^0.7.4",
+    "vuelidate-property-decorators": "^1.0.28",
+    "vuex": "^3.1.1",
+    "vuex-module-decorators": "^0.10.1",
+    "vueye-datatable": "^0.1.16"
+  },
+  "devDependencies": {
+    "@types/jest": "^23.1.4",
+    "@vue/cli-plugin-babel": "^3.5.0",
+    "@vue/cli-plugin-typescript": "^3.5.0",
+    "@vue/cli-plugin-unit-jest": "^4.2.3",
+    "@vue/cli-service": "^4.2.3",
+    "@vue/test-utils": "1.0.0-beta.29",
+    "babel-core": "7.0.0-bridge.0",
+    "ts-jest": "^23.0.0",
+    "typescript": "^3.2.1"
+  },
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint",
+    "test:unit": "vue-cli-service test:unit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nubimayowa/EmployeeManagement.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nubimayowa/EmployeeManagement/issues"
+  },
+  "homepage": "https://github.com/nubimayowa/EmployeeManagement#readme"
+}

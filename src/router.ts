@@ -2,11 +2,12 @@ import Vue from 'vue';
 import Router from 'vue-router';
 import firebase from 'firebase';
 import login from './views/login.vue';
-import home from './views/home.vue';
+import home from './views/Home.vue';
 import signup from './views/signup.vue';
 import user from './views/user.vue';
 import employeelist from './views/employeelist.vue';
 import viewemployee from './views/viewemployee.vue';
+import assigntask from './views/assigntask.vue';
 import Navbar from './views/Navbar.vue';
 import addpurchase from './views/addpurchase.vue';
 import purchaselist from './views/purchaselist.vue';
@@ -18,6 +19,9 @@ import leavesetting from './views/leavesetting.vue';
 import editemployee from './views/editemployee.vue';
 import leavelist from './views/leavelist.vue';
 import viewleave from './views/viewleave.vue';
+import tasklist from "./views/tasklist.vue";
+import viewtask from './views/viewtask.vue';
+import updatetask from './views/updatetask.vue';
 
 import store from './store';
 
@@ -98,6 +102,23 @@ const router = new Router({
           component: addpurchase,
         },
         {
+          path: "/app/assigntask",
+          name: "assigntask",
+          component: assigntask
+        },
+        {
+          path:"/app/tasklist",
+          name:"tasklist",
+          component: tasklist
+
+        },
+        {
+          path:"/app/updatetask",
+          name:"updatetask",
+          component: updatetask
+
+        },
+        {
           path: '/app/:dop',
           name: 'viewpurchase',
           component: viewpurchase,
@@ -115,6 +136,12 @@ const router = new Router({
           path: '/app/:employee_id',
           name: 'viewemployee',
           component: viewemployee,
+        },
+        {
+          path: "/app/:fullname",
+          name: 'viewtask',
+          component:viewtask,
+
         },
         {
           path: '/app/:fullname',

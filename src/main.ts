@@ -14,7 +14,7 @@ import VueyeTable from 'vueye-datatable';
 
 import './components/css/demo.css';
 import './components/css/demo.min.css';
-import './components/css/spur.css';
+import './components/css/spur.min.css';
 import './components/css/spur.min.css';
 import './components/js/spur.js';
 

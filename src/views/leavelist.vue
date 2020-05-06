@@ -39,14 +39,22 @@
       </td>
       
         <td>{{ leaverequest.sdate }}</td>
-       
+    
    
       
         <td>{{leaverequest.edate}}</td>
-        <td><span class="badge badge-pill badge-primary">{{
-                      leaverequest.ltype
+        <td><span v-if ="leaverequest.ltype =='Annual' " class="badge badge-pill badge-success">{{
+                    leaverequest.ltype
                     }}</span>
-
+                    <span v-if ="leaverequest.ltype =='Examination' " class="badge badge-pill badge-primary">{{
+                   leaverequest.ltype
+                    }}</span>
+                    <span v-if ="leaverequest.ltype =='Compassionate' " class="badge badge-pill badge-info">{{
+                   leaverequest.ltype
+                    }}</span>
+                    <span v-if ="leaverequest.ltype =='Sick' " class="badge badge-pill badge-danger">{{
+                     leaverequest.ltype
+                    }}</span>
                     
                     
                       <router-link
@@ -73,25 +81,9 @@
      
     </tbody>
   </table>
-<!--                
 
-                <ul class="list-group">
-                  <li
-                    v-for="employee in employees"
-                    v-bind:key="employee.id"
-                    class="list-group-item"
-                  >
-                    <span class="badge badge-pill badge-primary">{{
-                      employee.position
-                    }}</span>
-
-                    {{ employee.employee_id }}:{{ employee.fullname }}: {{employee.dept}}
-
-                   
-                  </li>
-                </ul> -->
                <br/>
-                <!-- <button type="submit" @click="moveto()" class="btn btn-primary">Add Employee</button> -->
+              
               
                 <button type="button" @click="moveto()" class="btn btn-outline-success float-right"><i class="fas fa-plus"></i>Add Request</button>
               </div>
@@ -129,7 +121,7 @@ export default class leavelist extends Vue {
   created() {
     this.isLoading= true;
     db.collection("leaverequest")
-     .orderBy('fullname')
+    //  .orderBy('fullname')
       .get()
       .then(querySnapshot => {
         querySnapshot.forEach(doc => {

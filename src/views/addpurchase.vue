@@ -50,7 +50,7 @@
                       <input
                         type="date"
                         class="form-control"
-                        v-model="dop"
+                        v-model="dop" 
                        name="dop"
                         placeholder="Date of Purchase"
                       />
