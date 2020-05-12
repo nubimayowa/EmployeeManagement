@@ -19,6 +19,7 @@
     "typings": "^2.1.1",
     "vee-validate": "^3.2.0",
     "vue": "^2.6.11",
+    "vue-axios": "^2.1.5",
     "vue-bootstrap-datetimepicker": "^5.0.1",
     "vue-content-loader": "^0.2.2",
     "vue-datatable": "^1.0.4",

@@ -1,62 +1,94 @@
 <template>
-<body backk>
-    <div class="form-screen">
+
+    <div class="form-screen" >
       <loading
         :active.sync="isLoading"
         :can-cancel="true"
         :color="loadingIconColor"
       ></loading>
        
-        <a href="index.html" class="spur-logo"><i class="fab fa-freebsd"></i> <span>Spur</span></a>
+        <a  class="spur-logo"><i class="fab fa-freebsd"></i> <span>Spur</span></a>
     
         <div class="card account-dialog">
             <div class="card-header bg-primary text-white"> Sign in to your account </div>
             <div class="card-body">
+               <ValidationObserver v-slot="{ invalid }">
                <div v-if="error" class="alert alert-danger">{{error}}</div>
-                <form >
+                <form @submit.prevent="onLogin">
               
                     <div class="form-group">
-                        
-
-  <input type="email" name="email" required autofocus id="email" size="40"  class="form-control" v-model="email" placeholder="Enter Email">
+                   <ValidationProvider name="email" rules="required|email" v-slot="{ errors }">
+  <input type="text" v-model="email" size="40" placeholder="Email"  class="form-control" >
+   <span  style="color: red;">{{ errors[0] }}</span>
+</ValidationProvider>
                     </div>
                     <div class="form-group">
-                        <input type="password" name="password" required autofocus id="password" size="40"  class="form-control" v-model="password"  placeholder="Password">
+                             <ValidationProvider name="confirm" rules="required" v-slot="{ errors }">
+      <input type="password" v-model="confirmpassword" size="40" placeholder="Password"  class="form-control"  />
+      <span style="color: red;">{{ errors[0] }}</span>
+    </ValidationProvider>
                     </div>
-                    <div class="account-dialog-actions">
-                        <button  v-on:click="login" class="btn btn-primary">Sign in</button>
-                          <router-link :to="{ name: 'signup' }">Dont have an account?</router-link>
-                       
+                     
+                      
+                   
+
+                   
+                   <div class="form-group" style= 'text-align: center;' >
+                     <button  :disabled="invalid"  class="btn btn-outline-success mb-1">Login</button>
+                          
+                      </div>
+                        <div class="form-group" style= 'text-align: center;'>
+                   <router-link :to="{ name: 'signup' }">Dont have an account? Signup </router-link>
                     </div>
+                     
+                    
+                    
      
                 </form>
+               </ValidationObserver>
             </div>
         </div>
     </div>
 
-</body>
+
 </template>
 
 
 
 
 <script>
-import firebase from 'firebase'
+import { ValidationProvider, extend } from 'vee-validate';
+import { required } from 'vee-validate/dist/rules';
+import { ValidationObserver } from 'vee-validate';
 import db from "../components/firebaseInit";
 import Loading from "vue-loading-overlay";
-import toast from '@/store/modules/toast';
+import * as VeeValidate from "vee-validate"
+import toast from "@/store/modules/toast";
 
-components: {
+// import { Validate } from "vuelidate-property-decorators";
+// import { required } from "vuelidate/lib/validators";
+extend('required',{
+  ...required,
+  message: 'This field is required'
+});
 
-  Loading
-}
+ 
+
 
 export default {
   name: "login",
+   components: {
+    Loading ,
+    ValidationProvider,
+    ValidationObserver,
+   
+  },
+  
   data() {
     return {
       email: "",
       password: "",
+      confirmpassword:"",
         error: null,
       loadingIconColor:"#00b8d0",
        isLoading: false
@@ -64,22 +96,19 @@ export default {
 
     };
   },
+
+
    methods: {
-    login() {
-      this.isLoading = true;
-      firebase
-        .auth()
-        .signInWithEmailAndPassword(this.email, this.password)
-        .then(data => {
-          this.isLoading= false
-        
-          this.$router.replace("/app")
-            toast.success("Login Successfully", "Success", 3000);  
-        })
-        .catch(err => {
-          this.error = err.message;
-        });
+    onLogin() {
+      const user = {
+        email: this.email,
+        password: this.password
+      }
+      this.$store.dispatch('signInAction', user)
     }
+
+
+     
   }
 
 
