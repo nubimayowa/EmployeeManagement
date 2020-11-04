@@ -34,7 +34,7 @@ import '../node_modules/izitoast/dist/css/iziToast.min.css';
 import 'popper.js';
 
 import 'vue-loading-overlay/dist/vue-loading';
-
+// test
 
 import 'bootstrap';
 import * as $ from 'jquery';
