@@ -5,7 +5,6 @@
  * https://hackerthemes.com
  */
 import * as $ from 'jquery';
-
 const mobileBreakpoint = window.matchMedia("(max-width: 991px )");
 
 $(document).ready(function(){

@@ -97,7 +97,7 @@
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
                             <a class="dropdown-item" href="#!">Profile</a>
                             <a class="dropdown-item" @click="logoutFromFirebase">Logout</a>
-                            <a class="dropdown-item" >login</a>
+                           
                               <!-- <a class="dash-nav-dropdown-item"> <router-link to="/app/employeelist">Employee list </router-link></a> -->
                         </div>
                     </div>

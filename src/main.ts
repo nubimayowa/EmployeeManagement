@@ -1,8 +1,9 @@
 import Vue from 'vue';
 import App from './App.vue';
 import router from './router';
-import store from './store';
-import firebase from 'firebase';
+
+import store from "./store";
+// import firebase from 'firebase';
 
 import * as VeeValidate from 'vee-validate';
 import Loading from 'vue-loading-overlay';
@@ -15,7 +16,7 @@ import VueyeTable from 'vueye-datatable';
 import './components/css/demo.css';
 import './components/css/demo.min.css';
 import './components/css/spur.min.css';
-import './components/css/spur.min.css';
+import './components/css/spur.css';
 import './components/js/spur.js';
 
 import './components/firebaseInit.js';

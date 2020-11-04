@@ -2,104 +2,131 @@ import Vue from 'vue';
 import Vuex from 'vuex';
  import * as firebase from "firebase"
  import toast from '@/store/modules/toast';
+
+import db from "./components/firebaseinit";
+
 import router from './router';
+import Loading from "vue-loading-overlay";
 
 
 Vue.use(Vuex);
 
 export default new Vuex.Store({
 
-  state: {
-    user: null,
-    status: null,
-    error: null,
+
+
+
+  state:{},
+  mutations:{},
+  actions:{}
+
+  // state: {
+  //   user: null,
+  //   status: null,
+  //   error: null,
+    
+  // },
+  
+   
+  // mutations: {
+
+  //   setUser (state, payload) {
+  //     state.user = payload
+  //   },
+
+  //   removeUser (state) {
+  //     state.user = null
+  //   },
+
+  //   setStatus (state, payload) {
+  //     state.status = payload
+  //   },
+
+  //   setError (state, payload) {
+  //     state.error = payload
+  //   },
    
 
-  },
-   
-  mutations: {
-
-    setUser (state, payload) {
-      state.user = payload
-    },
-
-    removeUser (state) {
-      state.user = null
-    },
-
-    setStatus (state, payload) {
-      state.status = payload
-    },
-
-    setError (state, payload) {
-      state.error = payload
-    }
-
-  },
-  actions: {
-    signUpAction ({ commit }, payload) {
-      commit('setStatus', 'loading')
-      firebase.auth().createUserWithEmailAndPassword(payload.email, payload.password)
-        .then((response) => {
-          alert('success')
+  // },
+  // actions: {
+  //   signUpAction ({ commit }, payload) {
+  //     commit('setStatus', 'loading')
+  //     firebase.auth().createUserWithEmailAndPassword(payload.email, payload.password)
+  //       .then((response) => {
+  //         alert('success')
          
        
-          // response will have user
-          // user will have uid will be updated to the state
-        commit('setUser', response.user.uid)
-          commit('setStatus', 'success')
-          commit('setError', null)
-             toast.success("Employee Created Successfully, Redirecting to login page...", "Success", 3000)
-           router.push("/login")
-        })
-        .catch((error) => {
-          commit('setStatus', 'failure')
-          commit('setError', error.message)
-          alert("please check well")
-        })
-    },
-    signInAction ({ commit }, payload) {
-      firebase.auth().signInWithEmailAndPassword(payload.email, payload.password)
-        .then((response) => {
-          commit('setUser', response.user.uid)
-          commit('setStatus', 'success')
-          commit('setError', null)
-          router.push("/app")
-        })
-        .catch((error) => {
-          commit('setStatus', 'failure')
-          commit('setError', error.message)
-        })
-    },
-    signOutAction ({ commit }) {
-      firebase.auth().signOut()
-        .then((response) => {
-          commit('setUser', null)
-          commit('setStatus', 'success')
-          commit('setError', null)
-          router.push("/signup")
-        })
-        .catch((error) => {
-          commit('setStatus', 'failure')
-          commit('setError', error.message)
-        })
-    }
-  },
+  //         // response will have user
+  //         // user will have uid will be updated to the state
+  //       commit('setUser', response.user.uid)
+  //         commit('setStatus', 'success')
+  //         commit('setError', null)
+  //            toast.success("Employee Created Successfully, Redirecting to login page...", "Success", 3000)
+  //          router.push("/login")
+  //       })
+        
+  //       .catch((error) => {
+         
+         
+  //         commit('setStatus', 'failure')
+  //         commit('setError', error.message)
+  //         alert("please check well");
+  //       })
+  //   },
+  //   signInAction ({ commit }, payload) {
+  //     firebase.auth().signInWithEmailAndPassword(payload.email, payload.password)
+  //       .then((response) => {
+  //         commit('setUser', response.user.uid)
+  //         commit('setStatus', 'success')
+  //         commit('setError', null)
+  //         alert("Valid details");
+  //       router.push("/app");
+  //       })
+  //       .catch((error) => {
+  //         commit('setStatus', 'failure')
+  //         commit('setError', error.message)
+  //       })
+  //   },
+  //   signOutAction ({ commit }) {
+  //     firebase.auth().signOut()
+  //       .then((response) => {
+  //         commit('setUser', null)
+  //         commit('setStatus', 'success')
+  //         commit('setError', null)
+  //         router.push("/signup")
+  //       })
+  //       .catch((error) => {
+  //         commit('setStatus', 'failure')
+  //         commit('setError', error.message)
+  //       })
+  //   },
+
+  //   // PurchaseAction({commit}){
+  //   //   db.collection('purchase').add({
+  //   //     .then((response) =>{
+
+  //   //     })
+
+
+  //   //   })
+  //   // }
+  // },
+
   
-  getters: {
+  // getters: {
 
-    status (state) {
-      return state.status
-    },
+  //   status (state) {
+  //     return state.status
+  //   },
 
-    user (state) {
-      return state.user
-    },
+  //   user (state) {
+  //     return state.user
+  //   },
 
-    error (state) {
-      return state.error
-    }
-  }
+  //   error (state) {
+  //     return state.error
+  //   }
+  // }
 
 
     

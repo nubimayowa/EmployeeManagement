@@ -1,12 +1,12 @@
 <template>
 <body>
     <div class="form-screen">
-        <loading
+         <loading
         :active.sync="isLoading"
         :can-cancel="true"
         :color="loadingIconColor"
       ></loading>
-        <a href="index.html" class="spur-logo"><i class="fas fa-bolt"></i> <span>Spur</span></a>
+        <a href="index.html" class="spur-logo"><i class="fab fa-grunt"></i> <span>Spur</span></a>
         <div class="card account-dialog">
             <div class="card-header bg-primary text-white"> Create an account </div>
             <div class="card-body">
@@ -52,6 +52,8 @@
                     </div>
                     <div class="form-group" style="text-align:center;">
                        <router-link :to="{ name: 'login' }">Already have an account?</router-link>
+                      
+                      
                        
                     </div>
                    
@@ -98,7 +100,7 @@ extend('email', email);
 
 export default {
   name: "signup",
-   components: {
+    components: {
     Loading ,
     ValidationProvider,
     ValidationObserver,
@@ -111,8 +113,9 @@ export default {
       password: "",
       confirmation:"",
       error: "",
-     loadingIconColor: "",
-     isLoading: false,
+  loadingIconColor:"#00b8d0",
+       isLoading: false
+
      
 
      
@@ -126,11 +129,14 @@ export default {
 
     
     onSignup(){
+      this.isLoading= true;
             const user = {
         email: this.email,
         password: this.password
       }
+      
       this.$store.dispatch('signUpAction', user)
+      
 
     
           

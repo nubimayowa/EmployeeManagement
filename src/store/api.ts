@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { UserSubmit, User, UserResponse, UserRegistration } from './models';
+import { UserSubmit, User, UserResponse } from './models';
 
 export const conduitApi = axios.create({
   baseURL: 'https://conduit.productionready.io/api',
@@ -46,10 +46,10 @@ export async function fetchUser(): Promise <User> { // get
 //     return response.data as User
 
 // }
-export async function regUser(user: UserRegistration) {
-  const response = await conduitApi.post('/users', user);
-  return response.data as User;
+// export async function regUser(user: UserRegistration) {
+//   const response = await conduitApi.post('/users', user);
+//   return response.data as User;
 
-  }
+//   }
 
 // e

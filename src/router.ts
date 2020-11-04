@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import firebase from 'firebase';
+// import firebase from 'firebase';
 import login from './views/login.vue';
 import home from './views/Home.vue';
 import signup from './views/signup.vue';
@@ -22,8 +22,11 @@ import viewleave from './views/viewleave.vue';
 import tasklist from "./views/tasklist.vue";
 import viewtask from './views/viewtask.vue';
 import updatetask from './views/updatetask.vue';
+import Notfound from "./views/Notfound.vue";
+import contact from "./views/contact.vue"
 
-import store from './store';
+
+import store from "./store";
 
 Vue.use(Router);
 
@@ -33,26 +36,31 @@ const router = new Router({
   routes: [
     {
       path: '*',
-      redirect: '/app',
+      component: Notfound,
     },
 
     {
       path: '/login',
       name: 'login',
       component: login,
-      meta: {
-        auth: true,
-      },
+      
+    },
+    {
+      path:"/contact",
+      name: "contact",
+      component: contact
+      
     },
     {
       path: '/signup',
       name: 'signup',
       component: signup,
-      meta: {
-        auth: true,
-      },
+     
 
     },
+    
+      
+    
 
     {
       path: '/app',
@@ -73,6 +81,12 @@ const router = new Router({
           name: 'user',
           component: user,
         },
+        // {
+        //   path: '*',
+        //   redirect: '/app',
+        // },
+    
+       
 
 
 
